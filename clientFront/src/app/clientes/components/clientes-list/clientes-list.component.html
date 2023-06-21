@@ -1,0 +1,23 @@
+<div>
+    <div>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>DNI</th>
+                <th>Edad</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let client of clients">
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.lastName }}</td>
+                    <td>{{ client.dni }}</td>
+                    <td>{{ client.age }}</td>
+                    <td (click)="DeleteClient(client.clientId)" >Eliminar</td>
+                    <td (click)="GoToUpdate(client.clientId)" >Actualizar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
