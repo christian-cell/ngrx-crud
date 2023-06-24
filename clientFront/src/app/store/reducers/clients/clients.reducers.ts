@@ -28,10 +28,8 @@ export const ClientsReducers = createReducer(
     }),
 
     on( updateClient , ( state , { client } ) => {
-        console.log(client);
         const { clientId } = client;
         let clients = state.map( c => c.clientId === clientId ? client : c );
-        console.log(clients);
         return clients;
     })
 )

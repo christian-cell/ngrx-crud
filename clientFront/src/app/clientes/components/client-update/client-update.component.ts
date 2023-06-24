@@ -46,7 +46,6 @@ export class ClientUpdateComponent implements OnInit {
         if(clientId){
           this.store.select(selectClientById(clientId))
           .subscribe(client => {
-            console.log(client);
             if(client)this.BuildForm(client);
           
           });
@@ -74,7 +73,6 @@ export class ClientUpdateComponent implements OnInit {
   }
 
   CheckInputValue(e:any){
-    // console.log(e);
   }
 
 }

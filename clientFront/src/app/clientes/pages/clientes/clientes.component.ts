@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { ClientsFilters } from 'src/app/models';
 import { AppState } from 'src/app/models/appState/appState';
 import { getClientsFiltered } from 'src/app/store/actions/clients/clients.actions';
 
@@ -20,8 +21,13 @@ export class ClientesComponent implements OnInit {
 
 
   StoreClients():void{
-    let parameters = { parameters : {} };
-    this.store.dispatch(getClientsFiltered(parameters));
+    this.store.select(AppState => AppState.clientesFilters)
+    .subscribe(( clientsFilters : ClientsFilters ) => {
+
+      /* let parameters = { parameters : {} }; */
+      this.store.dispatch(getClientsFiltered({ parameters : clientsFilters }));
+    })
+    
   }
 
 }

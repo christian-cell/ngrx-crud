@@ -26,10 +26,8 @@ export class ClientByIdComponent implements OnInit {
     const { client : { age } } = this;
 
     if(age){
-      console.log(age)
       this.store.select(selectClientByAge(+age))
       .subscribe(client => {
-        console.log(client)
       })
     }
   }

@@ -4,6 +4,7 @@ import { ClientesService } from "src/app/clientes/services";
 import { addClient, addClientSuccess, deleteClient, deleteClientSuccess, getClientsFiltered, getClientsSuccess, updateClient, updateClientSuccess } from "../../actions/clients/clients.actions";
 import { catchError, concatMap, exhaustMap, map , mergeMap, of, tap } from "rxjs";
 import { ClientesRes } from "src/app/models";
+import { ClientsFormatDataService } from "src/app/shared/services/customs/clients-format-data.service";
 
 @Injectable()
 
@@ -11,7 +12,8 @@ export class ClientsEffects {
     
     constructor(
         private action$ :                    Actions,
-        private clientsServices:             ClientesService
+        private clientsServices:             ClientesService,
+        private clientFormatData:            ClientsFormatDataService
     ){}
 
     loadClients$ = createEffect(() => {
@@ -20,9 +22,12 @@ export class ClientsEffects {
             ofType(getClientsFiltered),
             tap((params) => console.log(params)),
             concatMap((action) => {
-                console.log(action.parameters)
+                
                 return this.clientsServices.LoadClients(action.parameters).pipe(
-                    map((clients: any) => getClientsSuccess( { clients } )),
+                    map((clients: any) => {
+                        clients = this.clientFormatData.FormatClientData(clients);
+                        return getClientsSuccess( { clients } )
+                    }),
                     catchError((error:any) => of())
                 )
             })
@@ -34,12 +39,10 @@ export class ClientsEffects {
         .pipe(
             ofType(addClient),
             mergeMap(( action ) => {
-                console.log(action.client);
                 return this.clientsServices.AddNewClient( action.client )
                 .pipe(
                     map(( data ) =>{
                         const { client } = action;
-                        console.log(client);
                         return addClientSuccess({ client });
                     })
                 )

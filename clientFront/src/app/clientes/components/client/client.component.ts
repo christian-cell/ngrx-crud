@@ -33,7 +33,6 @@ export class ClientComponent implements OnInit {
     const { ClientForm : { status , value } } = this;
 
     if( status === 'VALID' ){
-      console.log(this.client);
       if(value.age){
         let newClient : ClientesRes = {...value , age : +value.age};
         this.store.dispatch(addClient({ client : newClient }));
@@ -42,7 +41,6 @@ export class ClientComponent implements OnInit {
   }
 
   CheckInputValue(e:any){
-    // console.log(e);
   }
 
 }
