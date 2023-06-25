@@ -42,8 +42,15 @@ export class ClientsEffects {
                 return this.clientsServices.AddNewClient( action.client )
                 .pipe(
                     map(( data ) =>{
-                        console.log(data);
-                        const { client } = action;
+                        console.log('la respuesta es : ' , data);
+                        console.log(action.client);
+                        
+                        let { client } = action;
+
+                        client = {...client , clientId : data};
+
+                        console.log(client);
+                        
                         return addClientSuccess({ client });
                     })
                 )

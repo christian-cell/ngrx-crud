@@ -30,7 +30,6 @@ namespace clients.Data
         public bool ExecuteSql(string sql)
         {
             IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            Console.WriteLine(dbConnection.Execute(sql));
             return dbConnection.Execute(sql) > 0 ;
         }
 
@@ -38,7 +37,6 @@ namespace clients.Data
         public int ExecuteSqlWithRowCount(string sql)
         {
             IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            Console.WriteLine(dbConnection.Execute(sql));
             return dbConnection.Execute(sql);
         }
 

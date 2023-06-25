@@ -76,13 +76,11 @@ public class ClientController : ControllerBase
 
         
 
-        if(_dapper.ExecuteSql(sql))
-        {
-            int newClientId = _dapper.LoadDataSingle<int>(sql);
-            return newClientId;
-        }
+        
+        int newClientId = _dapper.LoadDataSingle<int>(sql);
+        return newClientId;
+        
 
-        throw new Exception("Error al crear el cliente con nombre = " + client.Name);
     }
 
     [HttpPut("EditClient")]

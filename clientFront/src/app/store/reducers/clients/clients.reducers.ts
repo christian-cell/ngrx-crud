@@ -23,7 +23,7 @@ export const ClientsReducers = createReducer(
     }),
 
     on( deleteClientSuccess , ( state , {clientId} ) => {
-        let myState = state.filter(( e ) => e.clientId === clientId);
+        let myState = state.filter(( e ) => e.clientId !== clientId);
         return myState;
     }),
 

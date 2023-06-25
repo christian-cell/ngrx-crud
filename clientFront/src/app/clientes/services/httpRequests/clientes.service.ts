@@ -22,8 +22,8 @@ export class ClientesService {
     return this.http.get<ClientesRes>(`${environment.url}GetClients`);
   }
 
-  AddNewClient( body: ClientesRes ){
-    return this.http.post(`${environment.url}AddClient` , body);
+  AddNewClient( body: ClientesRes ):Observable<number>{
+    return this.http.post<number>(`${environment.url}AddClient` , body);
   }
 
   DeleteClient( clientId: number ){
