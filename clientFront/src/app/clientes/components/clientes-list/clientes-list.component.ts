@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientesService } from '../../services/httpRequests/clientes.service';
-import { ClientesRes, ClientsFilters } from 'src/app/models';
+import { ClientesRes } from 'src/app/models';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/models/appState/appState';
-import { deleteClient, getClientsFiltered } from 'src/app/store/actions/clients/clients.actions';
+import { deleteClient } from 'src/app/store/actions/clients/clients.actions';
 import { Router } from '@angular/router';
-import { addClientsFilters } from 'src/app/store/actions/clients/clientsFilters.actions';
+
 
 @Component({
   selector: 'app-clientes-list',
@@ -15,7 +14,6 @@ import { addClientsFilters } from 'src/app/store/actions/clients/clientsFilters.
 export class ClientesListComponent implements OnInit {
 
   clients :                                    ClientesRes[] = [];
-  clientsFilters:                              ClientsFilters = {};
 
   constructor(
     private router:                            Router,
@@ -23,17 +21,7 @@ export class ClientesListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.CheckFilters();
     this.GetClients();
-    
-  }
-
-  CheckFilters():void{
-    this.store.select( AppState => AppState.clientesFilters )
-    .subscribe(( clientsFilters ) => {
-      let myClientsFilters = {...clientsFilters};
-      this.clientsFilters = myClientsFilters;
-    })
   }
 
   GetClients():void{
@@ -41,11 +29,6 @@ export class ClientesListComponent implements OnInit {
     .subscribe(clientes => {
       this.clients = clientes;
     })
-  }
-
-  AddFilters( filter:string ):void{
-    let myClientsFilters = {...this.clientsFilters} ;
-    this.store.dispatch(addClientsFilters({ clientsFilters : myClientsFilters }));
   }
 
   DeleteClient(clientId:number):void{

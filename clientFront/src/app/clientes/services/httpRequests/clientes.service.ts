@@ -14,8 +14,11 @@ export class ClientesService {
   ) { }
 
   LoadClients( parameters ? : ClientsFilters ):Observable<ClientesRes>{
+    
     let url = `${environment.url}GetClients`;
-    this.BuildUrl( url , parameters );
+    this.BuildUrl( url , parameters ); 
+    /* this.BuildUrl() is a method to add filters as params when API can recive more params */
+    
     return this.http.get<ClientesRes>(`${environment.url}GetClients`);
   }
 
@@ -32,10 +35,7 @@ export class ClientesService {
   }
 
   BuildUrl( url: string , parameters ):string{
-    console.log(url);
-    
 
-    const keys = Object.keys(parameters);
     const values = Object.values(parameters).filter(( p ) => p);
 
     if(values.length > 0)url = url += '?';
@@ -49,8 +49,6 @@ export class ClientesService {
 
     /* removing if last Character is & */
     if( url.slice(-1) === '&' )url = url.slice(0,-1);
-    
-
     console.log(url);
 
     return "";

@@ -7,6 +7,7 @@ import { ClientByIdComponent } from './components/client-by-id/client-by-id.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientComponent } from './components/client/client.component';
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
+import { ClientsFiltersComponent } from './components/clients-filters/clients-filters.component';
 
 
 
@@ -16,7 +17,8 @@ import { ClientUpdateComponent } from './components/client-update/client-update.
     ClientesListComponent,
     ClientByIdComponent,
     ClientComponent,
-    ClientUpdateComponent
+    ClientUpdateComponent,
+    ClientsFiltersComponent
   ],
   imports: [
     CommonModule,

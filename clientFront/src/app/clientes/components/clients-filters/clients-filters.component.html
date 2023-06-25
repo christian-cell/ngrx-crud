@@ -1,0 +1,26 @@
+<div>
+    <input 
+        placeholder="nombre" 
+        type="text" 
+        [(ngModel)]="clientsFilters.name"
+        (input)="AddFilters('name')" 
+    />
+    <input 
+        placeholder="apellido" 
+        type="text" 
+        [(ngModel)]="clientsFilters.lastName"
+        (input)="AddFilters('lastName')" 
+    />
+    <input 
+        placeholder="dni" 
+        type="text" 
+        [(ngModel)]="clientsFilters.dni"
+        (input)="AddFilters('dni')" 
+    />
+    <input 
+        placeholder="edad" 
+        type="text" 
+        [(ngModel)]="clientsFilters.age"
+        (input)="AddFilters('age')" 
+    />
+</div>

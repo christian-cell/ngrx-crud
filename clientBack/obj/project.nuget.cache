@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UYlgdataGI/qQQu6DOJjleEfalzFRoTov6u2fA16kSHP2AOjb9c2JsPsJHI/0OWm+CszfNsIu+78J6stzDMPEA==",
+  "dgSpecHash": "R986sfapjyQJiREIKwaet1rwhgqcTqhgwsMyj+UHeko+mYcYFZVCXw3ZivT7BGQDQa6+DX5b8UQ+MXY/cqPK5g==",
   "success": true,
-  "projectFilePath": "/home/christian/Escritorio/trabajos/angular_practices/ngrx_labs/clients/clients.csproj",
+  "projectFilePath": "/home/christian/Escritorio/trabajos/angular_practices/ngrx_labs/clientBack/clients.csproj",
   "expectedPackageFiles": [
     "/home/christian/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/christian/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",

@@ -3174,11 +3174,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/christian/Escritorio/trabajos/angular_practices/ngrx_labs/clients/clients.csproj",
+      "projectUniqueName": "/home/christian/Escritorio/trabajos/angular_practices/ngrx_labs/clientBack/clients.csproj",
       "projectName": "clients",
-      "projectPath": "/home/christian/Escritorio/trabajos/angular_practices/ngrx_labs/clients/clients.csproj",
+      "projectPath": "/home/christian/Escritorio/trabajos/angular_practices/ngrx_labs/clientBack/clients.csproj",
       "packagesPath": "/home/christian/.nuget/packages/",
-      "outputPath": "/home/christian/Escritorio/trabajos/angular_practices/ngrx_labs/clients/obj/",
+      "outputPath": "/home/christian/Escritorio/trabajos/angular_practices/ngrx_labs/clientBack/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/christian/.nuget/NuGet/NuGet.Config"
@@ -3187,7 +3187,7 @@
         "net7.0"
       ],
       "sources": {
-        "/usr/share/dotnet/sdk/7.0.304/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+        "/usr/share/dotnet/sdk/7.0.305/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3262,7 +3262,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.305/RuntimeIdentifierGraph.json"
       }
     }
   }

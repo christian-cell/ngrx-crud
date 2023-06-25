@@ -58,7 +58,7 @@ public class ClientController : ControllerBase
     }
 
     [HttpPost("AddClient")]
-    public IActionResult AddClient(ClientToAddDto client)
+    public int /* IActionResult */ AddClient(ClientToAddDto client)
     {
         string sql = @"
         INSERT laboratory_schema.Clients
@@ -72,11 +72,14 @@ public class ClientController : ControllerBase
             "','"   + client.DNI + 
             "','"   + client.Age + 
 
-        "')";
+        "');SELECT NewID = SCOPE_IDENTITY()";
+
+        
 
         if(_dapper.ExecuteSql(sql))
         {
-            return Ok();
+            int newClientId = _dapper.LoadDataSingle<int>(sql);
+            return newClientId;
         }
 
         throw new Exception("Error al crear el cliente con nombre = " + client.Name);

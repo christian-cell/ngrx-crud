@@ -12,7 +12,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { ClientsEffects } from './store/effects/clients/clients.effects';
 import { metaReducers, reducers } from 'src/app/store/metareducers';
 import { metaEffects } from './store/metaEffects';
 
