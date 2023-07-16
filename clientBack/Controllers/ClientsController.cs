@@ -28,15 +28,32 @@ public class ClientController : ControllerBase
     }
 
     [HttpGet("GetClients")]
-    public IEnumerable<Client> GetClients()
+    public IEnumerable<Client> GetClients( string ? name = null , string ? lastName = null , string ? dni = null )
     {
         string sql = @"
             SELECT  [ClientId],
             [Name],
             [LastName],
             [DNI],
-            [Age] FROM laboratory_schema.Clients 
+            [Age] FROM laboratory_schema.Clients WHERE ClientId > 0
         ";
+
+        if( name != null )
+        {
+            sql += " AND Name = '" + name + "' ";
+        }
+
+        if( lastName != null )
+        {
+            sql += " AND LastName = '" + lastName + "' ";
+        }
+
+        if( dni != null )
+        {
+            sql += " AND DNI = '" + dni + "' ";
+        }
+
+        Console.WriteLine( sql );
 
         IEnumerable<Client> clients = _dapper.LoadData<Client>(sql);
         return clients;

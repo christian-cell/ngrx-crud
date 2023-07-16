@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientComponent } from './components/client/client.component';
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
 import { ClientsFiltersComponent } from './components/clients-filters/clients-filters.component';
+import { SharedModule } from '../shared/shared.module';
+import { ClientsFiltersToClientesListService } from './services';
 
 
 
@@ -24,7 +26,11 @@ import { ClientsFiltersComponent } from './components/clients-filters/clients-fi
     CommonModule,
     ClientesRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
+  ],
+  providers: [
+    ClientsFiltersToClientesListService
   ]
 })
 export class ClientesModule { }

@@ -3,24 +3,28 @@
         placeholder="nombre" 
         type="text" 
         [(ngModel)]="clientsFilters.name"
-        (input)="AddFilters('name')" 
+        (input)="StartTyping()" 
+        [disabled]="inputDisabled"
     />
     <input 
         placeholder="apellido" 
         type="text" 
         [(ngModel)]="clientsFilters.lastName"
-        (input)="AddFilters('lastName')" 
+        (input)="StartTyping()" 
+        [disabled]="inputDisabled"
     />
     <input 
         placeholder="dni" 
         type="text" 
         [(ngModel)]="clientsFilters.dni"
-        (input)="AddFilters('dni')" 
+        (input)="StartTyping()" 
+        [disabled]="inputDisabled"
     />
     <input 
         placeholder="edad" 
         type="text" 
         [(ngModel)]="clientsFilters.age"
-        (input)="AddFilters('age')" 
+        (input)="StartTyping()" 
+        [disabled]="inputDisabled"
     />
 </div>

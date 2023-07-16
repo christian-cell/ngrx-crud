@@ -15,11 +15,10 @@ export class ClientesService {
 
   LoadClients( parameters ? : ClientsFilters ):Observable<ClientesRes>{
     
-    let url = `${environment.url}GetClients`;
-    this.BuildUrl( url , parameters ); 
-    /* this.BuildUrl() is a method to add filters as params when API can recive more params */
+    const url = `${environment.url}GetClients`;
+    let builtUrl = this.BuildUrl( url , parameters ); 
     
-    return this.http.get<ClientesRes>(`${environment.url}GetClients`);
+    return this.http.get<ClientesRes>(`${builtUrl}`);
   }
 
   AddNewClient( body: ClientesRes ):Observable<number>{
@@ -49,8 +48,7 @@ export class ClientesService {
 
     /* removing if last Character is & */
     if( url.slice(-1) === '&' )url = url.slice(0,-1);
-    console.log(url);
 
-    return "";
+    return url;
   }
 }

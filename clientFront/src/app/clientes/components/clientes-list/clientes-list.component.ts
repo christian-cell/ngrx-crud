@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/models/appState/appState';
 import { deleteClient } from 'src/app/store/actions/clients/clients.actions';
 import { Router } from '@angular/router';
+import { ClientsFiltersToClientesListService } from '../../services';
+import { ComponentToSpinnerComponentService } from 'src/app/shared/services';
 
 
 @Component({
@@ -13,11 +15,13 @@ import { Router } from '@angular/router';
 })
 export class ClientesListComponent implements OnInit {
 
-  clients :                                    ClientesRes[] = [];
+  clients :                                            ClientesRes[] = [];
 
   constructor(
-    private router:                            Router,
-    private store:                             Store<AppState>
+    private router:                                    Router,
+    private store:                                     Store<AppState>,
+    private clientsFiltersToClientesListService:       ClientsFiltersToClientesListService,
+    private componentToSpinnerComponentService:        ComponentToSpinnerComponentService
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +31,9 @@ export class ClientesListComponent implements OnInit {
   GetClients():void{
     this.store.select(AppState => AppState.clientes)
     .subscribe(clientes => {
+      console.log(clientes);
+      this.componentToSpinnerComponentService.sendMessage('hide');
+      this.clientsFiltersToClientesListService.sendMessage('enable_filters')
       this.clients = clientes;
     })
   }
